@@ -55,7 +55,7 @@ public class DateUtil {
             return BasicConstants.AM.getValue();
 
         }
-        if (hour >= 11 && hour <= 13) {
+        if (hour >= 11 && hour < 13) {
 
             return BasicConstants.NOON.getValue();
 

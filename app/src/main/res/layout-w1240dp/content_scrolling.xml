@@ -14,5 +14,5 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="48dp"
         android:layout_marginEnd="200dp"
-        android:text="@string/large_text" />
+        android:text="@string/countDown" />
 </androidx.core.widget.NestedScrollView>

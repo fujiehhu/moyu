@@ -1,23 +1,34 @@
 package com.example.moyu;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-
-import com.google.android.material.appbar.CollapsingToolbarLayout;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-
 import com.example.moyu.databinding.ActivityScrollingBinding;
+import com.example.moyu.util.BasicConstants;
+import com.example.moyu.util.CaiHongPi;
+import com.example.moyu.util.DateUtil;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeoutException;
 
 public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
+
+    private static final String kong = "       ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +37,30 @@ public class ScrollingActivity extends AppCompatActivity {
         binding = ActivityScrollingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        //页面上方内容
         Toolbar toolbar = binding.toolbar;
         setSupportActionBar(toolbar);
         CollapsingToolbarLayout toolBarLayout = binding.toolbarLayout;
         toolBarLayout.setTitle(getTitle());
 
+        //邮件图标
         FloatingActionButton fab = binding.fab;
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+        fab.setOnClickListener(view -> {
+            try {
+                String txt = CaiHongPi.getPi();
+                Snackbar.make(view, txt, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            } catch (ExecutionException | InterruptedException | TimeoutException e) {
+                e.printStackTrace();
+                showError(e.toString());
             }
+
         });
+
+        try {
+            this.init();
+        } catch (ParseException e) {
+            showError(e.toString());
+        }
     }
 
     @Override
@@ -56,9 +78,54 @@ public class ScrollingActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
+        //右上角菜单
         if (id == R.id.action_settings) {
+            try {
+                initCountDown();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            showError("\"正在向外太空发送消息......\"");
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void init() throws ParseException {
+        this.initDateNow();
+        this.initCountDown();
+    }
+
+    public void initDateNow() throws ParseException {
+        TextView tv = findViewById(R.id.dateNow);
+        tv.setText(tv.getText().toString()
+                .replace("param1", DateUtil.getDateNow())
+                .replace("param2", "")
+                .replace("param3", DateUtil.getDuringDay())
+                .replace("param4", DateUtil.getWeekOfDate())
+        );
+    }
+
+    public void initCountDown() throws ParseException {
+        TextView tv = findViewById(R.id.tips3);
+        tv.setText(tv.getText().toString()
+//                .replace("param1", DateUtil.countDown(BasicConstants.ZHOUMO.getName()).equals("-1")
+//                        ? "（算算你还有几个小时下班）" : DateUtil.countDown(BasicConstants.ZHOUMO.getName()) + " 天")
+                        .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
+                        .replace("param3", DateUtil.countDown(BasicConstants.GUOQING.getName()))
+                        .replace("param4", DateUtil.countDown(BasicConstants.YUANDAN.getName()))
+                        .replace("param5", DateUtil.countDown(BasicConstants.CHUNJIE.getName()))
+                        .replace("param6", DateUtil.countDown(BasicConstants.QINGMING.getName()))
+                        .replace("param7", DateUtil.countDown(BasicConstants.LAODONGJIE.getName()))
+        );
+    }
+
+
+    public void showError(String text) {
+        @SuppressLint("ShowToast")
+        Toast toast = Toast.makeText(ScrollingActivity.this, text, Toast.LENGTH_LONG);
+        toast.show();
+
     }
 }

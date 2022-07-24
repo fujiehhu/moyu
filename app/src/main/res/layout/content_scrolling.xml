@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--滑动-->
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,10 +8,42 @@
     tools:context=".ScrollingActivity"
     tools:showIn="@layout/activity_scrolling">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+        android:orientation="vertical"
+        android:paddingTop="15dip">
 
+        <!--  当前时间  年月日星期上下午    -->
+        <TextView
+            android:id="@+id/dateNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/dateNow" />
+        <!--  提示1        -->
+        <TextView
+            android:id="@+id/tips1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/tips1" />
+
+        <!--  倒计时        -->
+        <TextView
+            android:id="@+id/tips3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/countDown" />
+
+        <!--  提示2        -->
+        <TextView
+            android:id="@+id/tips2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/tips2" />
+
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>
