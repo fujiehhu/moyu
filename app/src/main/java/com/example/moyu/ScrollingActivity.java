@@ -81,11 +81,6 @@ public class ScrollingActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         //右上角菜单
         if (id == R.id.action_settings) {
-            try {
-                initCountDown();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
             showError("🙂正在向外太空发送消息......");
             return true;
         }
@@ -98,6 +93,7 @@ public class ScrollingActivity extends AppCompatActivity {
         this.initCountDown();
     }
 
+
     public void initDateNow() throws ParseException {
         TextView tv = findViewById(R.id.dateNow);
         tv.setText(tv.getText().toString()
@@ -108,6 +104,7 @@ public class ScrollingActivity extends AppCompatActivity {
         );
     }
 
+    //    倒计时
     public void initCountDown() throws ParseException {
         TextView tv = findViewById(R.id.tips3);
         tv.setText(tv.getText().toString()
@@ -122,7 +119,7 @@ public class ScrollingActivity extends AppCompatActivity {
         );
     }
 
-
+    //显示错误信息
     public void showError(String text) {
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(ScrollingActivity.this, text, Toast.LENGTH_LONG);
