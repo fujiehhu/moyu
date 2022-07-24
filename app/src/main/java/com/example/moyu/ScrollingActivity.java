@@ -2,6 +2,7 @@ package com.example.moyu;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -28,7 +29,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
 
-    private static final String kong = "       ";
+    private static StringBuilder pis = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class ScrollingActivity extends AppCompatActivity {
             try {
                 String txt = CaiHongPi.getPi();
                 Snackbar.make(view, txt, Snackbar.LENGTH_LONG).setAction("Action", null).show();
+
+                //每次点击 记录结果
+                this.initPis(pis.append(txt).append("\n").toString());
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
                 e.printStackTrace();
                 showError(e.toString());
@@ -91,6 +95,19 @@ public class ScrollingActivity extends AppCompatActivity {
     public void init() throws ParseException {
         this.initDateNow();
         this.initCountDown();
+        this.initLineSplit();
+    }
+
+    private void initLineSplit() {
+        TextView tv = findViewById(R.id.line_split);
+        tv.setGravity(Gravity.CENTER);
+
+    }
+
+    private void initPis(String pis) {
+        TextView tv = findViewById(R.id.pis);
+        tv.setGravity(Gravity.CENTER);
+        tv.setText(pis);
     }
 
 

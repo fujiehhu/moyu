@@ -7,4 +7,6 @@
     <color name="teal_700">#D31616</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="line_split">#39000000</color>
 </resources>

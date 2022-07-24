@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tips_margin"
+            android:textSize="18sp"
             android:text="@string/countDown" />
 
         <!--  提示2        -->
@@ -45,5 +46,20 @@
             android:layout_margin="@dimen/tips_margin"
             android:text="@string/tips2" />
 
+        <TextView
+            android:id="@+id/line_split"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/tips_margin"
+            android:textSize="10sp"
+            android:text="@string/line_split" />
+
+
+        <TextView
+            android:id="@+id/pis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/pis" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

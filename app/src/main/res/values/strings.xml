@@ -1,6 +1,9 @@
 <resources>
-<!--   字符串常量-->
+    <!--   字符串常量-->
     <string name="app_name">「摸鱼办提醒」</string>
+    <string name="easterEgg">彩蛋</string>
+    <string name="pis"> </string>
+    <string name="line_split">—————————————— 我是有底线的 ——————————————</string>
     <string name="dateNow">
         "
         param1 param2
@@ -35,6 +38,5 @@
         最后，祝愿天下所有摸鱼人，都能愉快的度过每一天!
         "
     </string>
-    <string name="easterEgg">彩蛋</string>
 
 </resources>
