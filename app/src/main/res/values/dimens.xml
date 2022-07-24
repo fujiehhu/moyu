@@ -1,5 +1,10 @@
 <resources>
-    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="app_bar_height">150dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="text_margin">16dp</dimen>
+
+    <dimen name="tips_margin_left">2dp</dimen>
+    <dimen name="tips_margin">2dp</dimen>
+    <dimen name="tips_height">50dp</dimen>
 </resources>
+    <!--全局变量-->
