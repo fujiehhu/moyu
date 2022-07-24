@@ -56,6 +56,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         });
 
+
         try {
             this.init();
         } catch (ParseException e) {
@@ -85,7 +86,7 @@ public class ScrollingActivity extends AppCompatActivity {
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-            showError("\"正在向外太空发送消息......\"");
+            showError("🙂正在向外太空发送消息......");
             return true;
         }
         return super.onOptionsItemSelected(item);
