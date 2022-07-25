@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tips_margin"
+            android:layout_gravity="center_horizontal"
             android:text="@string/dateNow" />
         <!--  提示1        -->
         <TextView
@@ -27,6 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tips_margin"
+            android:layout_gravity="center_horizontal"
             android:text="@string/tips1" />
 
         <!--  倒计时        -->
@@ -35,15 +37,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/tips_margin"
+            android:layout_gravity="center_horizontal"
             android:textSize="15sp"
             android:text="@string/countDown" />
 
         <!--  提示2        -->
+
         <TextView
             android:id="@+id/tips2"
-            android:layout_width="match_parent"
+            android:layout_width="358dp"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tips_margin"
+            android:layout_gravity="center_horizontal"
             android:text="@string/tips2" />
 
         <TextView
@@ -51,6 +55,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/tips_margin"
+            android:layout_gravity="center_horizontal"
             android:textSize="10sp"
             android:text="@string/line_split" />
 
@@ -59,6 +64,7 @@
             android:id="@+id/pis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:layout_margin="@dimen/tips_margin"
             android:text="@string/pis" />
     </LinearLayout>
