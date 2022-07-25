@@ -79,14 +79,25 @@ public class DateUtil {
      */
 
     public static String getWeekOfDate() {
-        Date date = new Date();
         String[] weekDaysName = {"星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"};
-
-        //String[] weekDaysCode = { "0", "1", "2", "3", "4", "5", "6" };
 
         Calendar calendar = Calendar.getInstance();
 
-        calendar.setTime(date);
+        calendar.setTime(new Date());
+
+        int intWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+
+        return weekDaysName[intWeek];
+
+    }
+
+    public static Integer getWeekOfDateIndex() {
+
+        Integer[] weekDaysName = {7, 1, 2, 3, 4, 5, 6};
+
+        Calendar calendar = Calendar.getInstance();
+
+        calendar.setTime(new Date());
 
         int intWeek = calendar.get(Calendar.DAY_OF_WEEK) - 1;
 
@@ -138,34 +149,35 @@ public class DateUtil {
     }
 
     public static String countDown(String type) throws ParseException {
-        int i = 0;
+        //具体的天数
+        int days = 0;
         if (BasicConstants.ZHOUMO.getName().equals(type)) {
-            if (getWeekOfDate().equals("星期五")) {
-                i = -1;
+            if (getWeekOfDateIndex().equals(5)) {
+                days = -1;
             } else {
-                i = daysBetween(BasicConstants.ZHOUMO.getValue());
+                days = 6 - getWeekOfDateIndex();
             }
         }
         if (BasicConstants.ZHONGQIU.getName().equals(type)) {
-            i = daysBetween(BasicConstants.ZHONGQIU.getValue());
+            days = daysBetween(BasicConstants.ZHONGQIU.getValue());
         }
         if (BasicConstants.GUOQING.getName().equals(type)) {
-            i = daysBetween(BasicConstants.GUOQING.getValue());
+            days = daysBetween(BasicConstants.GUOQING.getValue());
         }
         if (BasicConstants.YUANDAN.getName().equals(type)) {
-            i = daysBetween(BasicConstants.YUANDAN.getValue());
+            days = daysBetween(BasicConstants.YUANDAN.getValue());
         }
         if (BasicConstants.CHUNJIE.getName().equals(type)) {
-            i = daysBetween(BasicConstants.CHUNJIE.getValue());
+            days = daysBetween(BasicConstants.CHUNJIE.getValue());
         }
         if (BasicConstants.QINGMING.getName().equals(type)) {
-            i = daysBetween(BasicConstants.QINGMING.getValue());
+            days = daysBetween(BasicConstants.QINGMING.getValue());
         }
         if (BasicConstants.LAODONGJIE.getName().equals(type)) {
-            i = daysBetween(BasicConstants.LAODONGJIE.getValue());
+            days = daysBetween(BasicConstants.LAODONGJIE.getValue());
         }
 
-        return String.valueOf(i);
+        return String.valueOf(days);
     }
 }
 

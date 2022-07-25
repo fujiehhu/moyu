@@ -1,9 +1,10 @@
 <resources>
     <!--   字符串常量-->
     <string name="app_name">「摸鱼办提醒」</string>
+    <string name="appname">Touch Fish</string>
     <string name="easterEgg">彩蛋</string>
     <string name="pis"> </string>
-    <string name="line_split">—————————————— 我是有底线的 ——————————————</string>
+    <string name="line_split">————— 我是有底线的 —————</string>
     <string name="dateNow">
         "
         param1 param2
@@ -12,8 +13,9 @@
     </string>
     <string name="countDown">
         "
-        <!--        距离周末还有:param1-->
-        「  距离中秋节还有: param2 天
+        「  距离周末还有: param1
+
+            距离中秋节还有: param2 天
 
             距离国庆节还有: param3 天
 

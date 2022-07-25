@@ -125,8 +125,8 @@ public class ScrollingActivity extends AppCompatActivity {
     public void initCountDown() throws ParseException {
         TextView tv = findViewById(R.id.tips3);
         tv.setText(tv.getText().toString()
-//                .replace("param1", DateUtil.countDown(BasicConstants.ZHOUMO.getName()).equals("-1")
-//                        ? "（算算你还有几个小时下班）" : DateUtil.countDown(BasicConstants.ZHOUMO.getName()) + " 天")
+                .replace("param1", DateUtil.countDown(BasicConstants.ZHOUMO.getName()).equals("-1")
+                        ? "（算算你还有几个小时下班）" : DateUtil.countDown(BasicConstants.ZHOUMO.getName()) + " 天")
                         .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
                         .replace("param3", DateUtil.countDown(BasicConstants.GUOQING.getName()))
                         .replace("param4", DateUtil.countDown(BasicConstants.YUANDAN.getName()))
