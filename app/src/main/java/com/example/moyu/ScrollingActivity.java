@@ -1,8 +1,6 @@
 package com.example.moyu;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
@@ -14,10 +12,10 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.moyu.api.CaiHongPi;
 import com.example.moyu.api.YiYan;
 import com.example.moyu.databinding.ActivityScrollingBinding;
 import com.example.moyu.util.BasicConstants;
-import com.example.moyu.api.CaiHongPi;
 import com.example.moyu.util.DateUtil;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -51,8 +49,7 @@ public class ScrollingActivity extends AppCompatActivity {
         fab.setOnClickListener(view -> {
             try {
                 String txt = new CaiHongPi().getPi();
-                Snackbar.make(view, txt, Snackbar.LENGTH_LONG).setAction("Action", null).show();
-
+                showInfo(view, txt);
                 //每次点击 记录结果
                 this.initPis(pis.append(txt).append("\n").toString());
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
@@ -93,10 +90,6 @@ public class ScrollingActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    public void onClick() {
-
-    }
 
     //    页面初始化
     public void init() throws ParseException {
@@ -149,7 +142,7 @@ public class ScrollingActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_DIAL, uri);
             startActivity(intent);*/
             try {
-                showError(new YiYan().getYiYan());
+                showInfo(tv, new YiYan().getYiYan());
             } catch (ExecutionException | InterruptedException | TimeoutException e) {
                 e.printStackTrace();
                 showError(e.toString());
@@ -165,6 +158,12 @@ public class ScrollingActivity extends AppCompatActivity {
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(ScrollingActivity.this, text, Toast.LENGTH_LONG);
         toast.show();
+
+    }
+
+
+    public void showInfo(View view, String info) {
+        Snackbar.make(view, info, Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
     }
 }
