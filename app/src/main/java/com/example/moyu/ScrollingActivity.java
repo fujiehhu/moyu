@@ -13,15 +13,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.moyu.databinding.ActivityScrollingBinding;
 import com.example.moyu.util.BasicConstants;
-import com.example.moyu.util.CaiHongPi;
+import com.example.moyu.api.CaiHongPi;
 import com.example.moyu.util.DateUtil;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
