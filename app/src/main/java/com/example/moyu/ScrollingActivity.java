@@ -48,7 +48,7 @@ public class ScrollingActivity extends AppCompatActivity {
         FloatingActionButton fab = binding.fab;
         fab.setOnClickListener(view -> {
             try {
-                String txt = CaiHongPi.getPi();
+                String txt = new CaiHongPi().getPi();
                 Snackbar.make(view, txt, Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
                 //每次点击 记录结果
