@@ -19,16 +19,17 @@
             android:id="@+id/dateNow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tips_margin"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/tips_margin"
             android:text="@string/dateNow" />
         <!--  提示1        -->
         <TextView
             android:id="@+id/tips1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tips_margin"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/tips_margin"
+            android:clickable="true"
             android:text="@string/tips1" />
 
         <!--  倒计时        -->
@@ -36,10 +37,11 @@
             android:id="@+id/tips3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/tips_margin"
             android:layout_gravity="center_horizontal"
-            android:textSize="15sp"
-            android:text="@string/countDown" />
+            android:layout_margin="@dimen/tips_margin"
+            android:clickable="true"
+            android:text="@string/countDown"
+            android:textSize="15sp" />
 
         <!--  提示2        -->
 
@@ -54,10 +56,10 @@
             android:id="@+id/line_split"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/tips_margin"
             android:layout_gravity="center_horizontal"
-            android:textSize="10sp"
-            android:text="@string/line_split" />
+            android:layout_margin="@dimen/tips_margin"
+            android:text="@string/line_split"
+            android:textSize="10sp" />
 
 
         <TextView

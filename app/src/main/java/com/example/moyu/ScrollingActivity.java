@@ -1,16 +1,20 @@
 package com.example.moyu;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.moyu.api.YiYan;
 import com.example.moyu.databinding.ActivityScrollingBinding;
 import com.example.moyu.util.BasicConstants;
 import com.example.moyu.api.CaiHongPi;
@@ -90,6 +94,11 @@ public class ScrollingActivity extends AppCompatActivity {
     }
 
 
+    public void onClick() {
+
+    }
+
+    //    页面初始化
     public void init() throws ParseException {
         this.initDateNow();
         this.initCountDown();
@@ -125,17 +134,34 @@ public class ScrollingActivity extends AppCompatActivity {
         tv.setText(tv.getText().toString()
                 .replace("param1", DateUtil.countDown(BasicConstants.ZHOUMO.getName()).equals("-1")
                         ? "（算算你还有几个小时下班）" : DateUtil.countDown(BasicConstants.ZHOUMO.getName()) + " 天")
-                        .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
-                        .replace("param3", DateUtil.countDown(BasicConstants.GUOQING.getName()))
-                        .replace("param4", DateUtil.countDown(BasicConstants.YUANDAN.getName()))
-                        .replace("param5", DateUtil.countDown(BasicConstants.CHUNJIE.getName()))
-                        .replace("param6", DateUtil.countDown(BasicConstants.QINGMING.getName()))
-                        .replace("param7", DateUtil.countDown(BasicConstants.LAODONGJIE.getName()))
+                .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
+                .replace("param3", DateUtil.countDown(BasicConstants.GUOQING.getName()))
+                .replace("param4", DateUtil.countDown(BasicConstants.YUANDAN.getName()))
+                .replace("param5", DateUtil.countDown(BasicConstants.CHUNJIE.getName()))
+                .replace("param6", DateUtil.countDown(BasicConstants.QINGMING.getName()))
+                .replace("param7", DateUtil.countDown(BasicConstants.LAODONGJIE.getName()))
         );
+
+        tv.setOnClickListener(arg0 -> {
+            /*
+            //调到拨号界面
+            Uri uri = Uri.parse("tel:18764563501");
+            Intent intent = new Intent(Intent.ACTION_DIAL, uri);
+            startActivity(intent);*/
+            try {
+                showError(new YiYan().getYiYan());
+            } catch (ExecutionException | InterruptedException | TimeoutException e) {
+                e.printStackTrace();
+                showError(e.toString());
+            }
+        });
     }
 
     //显示错误信息
     public void showError(String text) {
+        if (text == null) {
+            return;
+        }
         @SuppressLint("ShowToast")
         Toast toast = Toast.makeText(ScrollingActivity.this, text, Toast.LENGTH_LONG);
         toast.show();
