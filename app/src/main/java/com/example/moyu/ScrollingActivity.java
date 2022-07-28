@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,6 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
@@ -148,6 +151,9 @@ public class ScrollingActivity extends AppCompatActivity {
                 showError(e.toString());
             }
         });
+
+
+        initmsg();
     }
 
     //显示错误信息
@@ -165,5 +171,44 @@ public class ScrollingActivity extends AppCompatActivity {
     public void showInfo(View view, String info) {
         Snackbar.make(view, info, Snackbar.LENGTH_LONG).setAction("Action", null).show();
 
+    }
+
+    private ViewFlipper viewfli;
+
+    /**
+     * 　　* @Description: 对UI进行初始化操作
+     */
+    private void initmsg() {
+        viewfli = (ViewFlipper) super.findViewById(R.id.viewfli);
+
+        // 为ViewFlipper设置内容
+        List<TextView> list = this.getData();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            viewfli.addView(list.get(i));
+        }
+
+        // 设置文字in/out的动画效果
+        viewfli.setInAnimation(this, R.anim.push_up_in);
+        viewfli.setOutAnimation(this, R.anim.push_up_out);
+        viewfli.startFlipping();
+    }
+
+    /**
+     * @return list
+     * @Description: 要显示的文字信息
+     * 在实际开发中，此方法可为对服务器返回数据的解析操作
+     */
+    private List<TextView> getData() {
+        List<TextView> list = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            TextView tv = (TextView) new TextView(this);
+            tv.setText("这是测试用的第 " + i + " 行测试数据：sdfsdf sdfsdfsdsdfasdf ssdfsdfsdf");
+            tv.setGravity(Gravity.CENTER);
+            list.add(tv);
+        }
+
+        return list;
     }
 }
