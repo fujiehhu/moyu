@@ -101,8 +101,8 @@ public class BaseApi {
     }
 
     //json 的处理在各个子类中，这里只是获取json
-    public String process(String jsonResult) {
-
-        return "";
-    }
+//    public ArrayList<String> process(String jsonResult) {
+//
+//        return "";
+//    }
 }

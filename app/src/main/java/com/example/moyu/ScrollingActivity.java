@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.moyu.api.CaiHongPi;
+import com.example.moyu.api.WeiBoApi;
 import com.example.moyu.api.YiYan;
 import com.example.moyu.databinding.ActivityScrollingBinding;
 import com.example.moyu.util.BasicConstants;
@@ -65,7 +66,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
         try {
             this.init();
-        } catch (ParseException e) {
+        } catch (ParseException | ExecutionException | InterruptedException | TimeoutException e) {
             showError(e.toString());
         }
     }
@@ -95,10 +96,11 @@ public class ScrollingActivity extends AppCompatActivity {
 
 
     //    页面初始化
-    public void init() throws ParseException {
+    public void init() throws ParseException, ExecutionException, InterruptedException, TimeoutException {
         this.initDateNow();
         this.initCountDown();
         this.initLineSplit();
+        this.initWeiBo();
     }
 
     private void initLineSplit() {
@@ -152,8 +154,6 @@ public class ScrollingActivity extends AppCompatActivity {
             }
         });
 
-
-        initmsg();
     }
 
     //显示错误信息
@@ -173,13 +173,12 @@ public class ScrollingActivity extends AppCompatActivity {
 
     }
 
-    private ViewFlipper viewfli;
 
     /**
      * 　　* @Description: 对UI进行初始化操作
      */
-    private void initmsg() {
-        viewfli = (ViewFlipper) super.findViewById(R.id.viewfli);
+    private void initWeiBo() throws ExecutionException, InterruptedException, TimeoutException {
+        ViewFlipper viewfli = (ViewFlipper) super.findViewById(R.id.viewfli);
 
         // 为ViewFlipper设置内容
         List<TextView> list = this.getData();
@@ -199,12 +198,12 @@ public class ScrollingActivity extends AppCompatActivity {
      * @Description: 要显示的文字信息
      * 在实际开发中，此方法可为对服务器返回数据的解析操作
      */
-    private List<TextView> getData() {
+    private List<TextView> getData() throws ExecutionException, InterruptedException, TimeoutException {
+        ArrayList<String> weiBo = new WeiBoApi().getWeiBo();
         List<TextView> list = new ArrayList<>();
-
-        for (int i = 0; i < 5; i++) {
+        for (String s : weiBo) {
             TextView tv = (TextView) new TextView(this);
-            tv.setText("这是测试用的第 " + i + " 行测试数据：sdfsdf sdfsdfsdsdfasdf ssdfsdfsdf");
+            tv.setText(s);
             tv.setGravity(Gravity.CENTER);
             list.add(tv);
         }
