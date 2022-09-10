@@ -132,12 +132,12 @@ public class ScrollingActivity extends AppCompatActivity {
         tv.setText(tv.getText().toString()
                 .replace("param1", DateUtil.countDown(BasicConstants.ZHOUMO.getName()).equals("-1")
                         ? "（算算你还有几个小时下班）" : DateUtil.countDown(BasicConstants.ZHOUMO.getName()) + " 天")
-                .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
                 .replace("param3", DateUtil.countDown(BasicConstants.GUOQING.getName()))
                 .replace("param4", DateUtil.countDown(BasicConstants.YUANDAN.getName()))
                 .replace("param5", DateUtil.countDown(BasicConstants.CHUNJIE.getName()))
                 .replace("param6", DateUtil.countDown(BasicConstants.QINGMING.getName()))
                 .replace("param7", DateUtil.countDown(BasicConstants.LAODONGJIE.getName()))
+                .replace("param2", DateUtil.countDown(BasicConstants.ZHONGQIU.getName()))
         );
 
         tv.setOnClickListener(arg0 -> {
