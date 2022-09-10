@@ -24,13 +24,6 @@
             android:text="@string/dateNow" />
 
 
-        <ViewFlipper
-            android:id="@+id/viewfli"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/tips_margin" />
-
         <!--  提示1        -->
         <TextView
             android:id="@+id/tips1"
@@ -40,6 +33,14 @@
             android:layout_margin="@dimen/tips_margin"
             android:clickable="true"
             android:text="@string/tips1" />
+
+
+        <ViewFlipper
+            android:id="@+id/viewfli"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/tips_margin" />
 
         <!--  倒计时        -->
         <TextView
