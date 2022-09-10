@@ -178,7 +178,7 @@ public class ScrollingActivity extends AppCompatActivity {
      * 　　* @Description: 对UI进行初始化操作
      */
     private void initWeiBo() throws ExecutionException, InterruptedException, TimeoutException {
-        ViewFlipper viewfli = (ViewFlipper) super.findViewById(R.id.viewfli);
+        ViewFlipper viewfli = super.findViewById(R.id.weibo);
 
         // 为ViewFlipper设置内容
         List<TextView> list = this.getData();
