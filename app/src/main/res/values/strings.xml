@@ -15,8 +15,6 @@
         "
         「  距离周末还有: param1
 
-            距离中秋节还有: param2 天
-
             距离国庆节还有: param3 天
 
             距离元旦节还有: param4 天
@@ -25,7 +23,9 @@
 
             距离清明节还有: param6 天
 
-            距离劳动节还有: param7 天   」"
+            距离劳动节还有: param7 天
+
+            距离中秋节还有: param2 天 」"
     </string>
     <string name="tips1">
         "
