@@ -1,6 +1,7 @@
 <resources>
     <!--   字符串常量-->
     <string name="app_name">「摸鱼办提醒」</string>
+    <string name="app_name1">摸鱼办提醒</string>
     <string name="appname">Touch Fish</string>
     <string name="easterEgg">彩蛋</string>
     <string name="pis"> </string>
@@ -14,17 +15,12 @@
     <string name="countDown">
         "
         「  距离周末还有: param1
-
             距离国庆节还有: param3 天
-
             距离元旦节还有: param4 天
 
-            距离兔年春节还有: param5 天
-
+            距离春节还有: param5 天
             距离清明节还有: param6 天
-
             距离劳动节还有: param7 天
-
             距离中秋节还有: param2 天 」"
     </string>
     <string name="tips1">

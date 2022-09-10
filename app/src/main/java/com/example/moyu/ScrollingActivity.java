@@ -33,7 +33,6 @@ public class ScrollingActivity extends AppCompatActivity {
 
     private ActivityScrollingBinding binding;
 
-    private static StringBuilder pis = new StringBuilder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +51,7 @@ public class ScrollingActivity extends AppCompatActivity {
         FloatingActionButton fab = binding.fab;
         fab.setOnClickListener(view -> {
             try {
+                StringBuilder pis = new StringBuilder();
                 String txt = new CaiHongPi().getPi();
                 showInfo(view, txt);
                 //每次点击 记录结果
@@ -202,7 +202,7 @@ public class ScrollingActivity extends AppCompatActivity {
         ArrayList<String> weiBo = new WeiBoApi().getWeiBo();
         List<TextView> list = new ArrayList<>();
         for (String s : weiBo) {
-            TextView tv = (TextView) new TextView(this);
+            TextView tv = new TextView(this);
             tv.setText(s);
             tv.setGravity(Gravity.CENTER);
             list.add(tv);

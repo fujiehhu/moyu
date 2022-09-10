@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/moyu/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1415" />
+        <entry key="..\:/Project/moyu/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Project/moyu/app/src/main/res/layout-w1240dp/content_scrolling.xml" value="0.1" />
         <entry key="..\:/Project/moyu/app/src/main/res/layout-w936dp/content_scrolling.xml" value="0.10061208875286917" />
         <entry key="..\:/Project/moyu/app/src/main/res/layout/activity_scrolling.xml" value="0.20168066580377575" />
