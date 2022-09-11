@@ -33,6 +33,16 @@
 
         <!--  提示1        -->
         <TextView
+            android:id="@+id/shici"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/tips_margin"
+            android:clickable="true"
+            android:text="@string/shici" />
+
+        <!--  提示1        -->
+        <TextView
             android:id="@+id/tips1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -40,8 +50,6 @@
             android:layout_margin="@dimen/tips_margin"
             android:clickable="true"
             android:text="@string/tips1" />
-
-
 
         <!--  倒计时        -->
         <TextView

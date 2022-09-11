@@ -14,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.moyu.api.CaiHongPi;
+import com.example.moyu.api.JinRiShiCiApi;
 import com.example.moyu.api.WeiBoApi;
 import com.example.moyu.api.YiYan;
 import com.example.moyu.databinding.ActivityScrollingBinding;
@@ -101,12 +102,22 @@ public class ScrollingActivity extends AppCompatActivity {
         this.initCountDown();
         this.initLineSplit();
         this.initWeiBo();
+//        this.initShiCi();
+    }
+
+    private void initShiCi() {
+        try {
+            TextView tv = findViewById(R.id.shici);
+            tv.setText(tv.getText().toString().replace("param", new JinRiShiCiApi().getShiCi()));
+        } catch (ExecutionException | InterruptedException | TimeoutException e) {
+            e.printStackTrace();
+            showError(e.toString());
+        }
     }
 
     private void initLineSplit() {
         TextView tv = findViewById(R.id.line_split);
         tv.setGravity(Gravity.CENTER);
-
     }
 
     private void initPis(String pis) {
